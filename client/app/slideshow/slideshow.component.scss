@@ -1,0 +1,106 @@
+#app-root.app-xs app-slideshow .monitor {
+  background: url('/assets/images/slideshow/phone.png') no-repeat;
+  background-size: 100%;
+  .slides {
+    .image-preview {
+      width: 95.8%;
+    }
+  }
+}
+#app-root.app-xs.app-md app-slideshow .monitor {
+  background: url('/assets/images/slideshow/tablet.png') no-repeat;
+  background-size: 100% 363px;
+  ul {
+    > li {
+      clip-path: inset(0px 0px 0px 0px);
+    }
+  }
+}
+#app-root.app-xs.app-lg app-slideshow .monitor {
+  background: url('/assets/images/slideshow/desktop.png') no-repeat;
+  background-size: 100%;
+  ul {
+    > li {
+      clip-path: inset(0px 0px 0px 0px);
+    }
+  }
+}
+
+app-slideshow {
+  #slideshow-container {
+    position: relative;
+    max-width: 578px;
+    margin: 0 auto;
+  }
+
+  .slides {
+    position: absolute;
+    top: 18px;
+    margin-left: -18px;
+    
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+  
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+  
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+  }
+
+  .monitor {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    ul {
+      height: 456px;
+      list-style: none;
+      top: 10px;
+      max-width: 100%;
+      > li {
+        list-style: none;
+        display: none;
+        clip-path: inset(0px 0px 25px 0px);
+        &:first-child {
+          display: block;
+          z-index: 2;
+        }
+      }
+    }
+
+    .slideActive {
+      z-index: 2;
+    }
+    
+    // @todo uncomment when feature is working
+    // &:hover {
+    //   #toolbar {
+    //     display: block;
+    //   }
+    // }
+
+    #toolbar {
+      width: 260px;
+      position: absolute;
+      top: 284px;
+      left: 165px;
+      z-index: 3;
+      display: none;
+      opacity: 0.7;
+      padding: 5px;
+      background: #3c3a2d;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+    }
+  }
+}

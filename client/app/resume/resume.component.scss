@@ -1,0 +1,24 @@
+@use "../../boot" as *;
+
+@include media-breakpoint-down(xs) {
+  #app-root.app-xs #resume-component {
+    #spinner {
+      left: 5%;
+    }
+  }
+}
+
+#resume-component {
+  #spinner {
+    position: absolute;
+    z-index: -1;
+    left: 33%;
+    .spinner-grow {
+      margin-right: 10px;
+    }
+  }
+
+  iframe {
+    z-index: 100;
+  }
+}
